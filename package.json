@@ -1,5 +1,5 @@
 {
-  "name": "astro-decap-cms",
+  "name": "@jee-r/astro-decap-cms",
   "version": "0.6.0",
   "description": "Add Decap CMS’s admin dashboard to your Astro project",
   "repository": "jee-r/astro-decap-cms",

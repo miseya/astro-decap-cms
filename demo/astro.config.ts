@@ -3,7 +3,7 @@
 
 // @ts-check
 import { defineConfig } from 'astro/config';
-import NetlifyCMS from 'astro-decap-cms';
+import NetlifyCMS from '@jee-r/astro-decap-cms';
 
 export default defineConfig({
   integrations: [

@@ -10,6 +10,6 @@
   },
   "devDependencies": {
     "astro": "^1.9.2",
-    "astro-decap-cms": "file:../"
+    "@jee-r/astro-decap-cms": "file:../"
   }
 }
