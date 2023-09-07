@@ -1,10 +1,10 @@
 {
-  "name": "astro-netlify-cms",
+  "name": "astro-decap-cms",
   "version": "0.5.4",
-  "description": "Add Netlify CMS’s admin dashboard to your Astro project",
-  "repository": "delucis/astro-netlify-cms",
-  "homepage": "https://github.com/delucis/astro-netlify-cms",
-  "author": "delucis",
+  "description": "Add Decap CMS’s admin dashboard to your Astro project",
+  "repository": "jee-r/astro-decap-cms",
+  "homepage": "https://github.com/jee-r/astro-decap-cms",
+  "author": "jee-r",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -24,6 +24,7 @@
     "astro-component",
     "cms",
     "astro",
+    "decap-cms",
     "netlify-cms"
   ],
   "dependencies": {
