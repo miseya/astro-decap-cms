@@ -2,7 +2,7 @@ import type { CmsConfig } from 'decap-cms-core';
 import type { Plugin } from 'vite';
 import type { PreviewStyle } from './types';
 
-const virtualModuleId = 'virtual:astro-netlify-cms/user-config';
+const virtualModuleId = 'virtual:astro-decap-cms/user-config';
 const resolvedVirtualModuleId = '\0' + virtualModuleId;
 
 function generateVirtualConfigModule({
@@ -50,7 +50,7 @@ export default function AdminDashboardPlugin({
   identityWidget: string;
 }): Plugin {
   return {
-    name: 'vite-plugin-netlify-cms-admin-dashboard',
+    name: 'vite-plugin-decap-cms-admin-dashboard',
 
     resolveId(id) {
       if (id === virtualModuleId) return resolvedVirtualModuleId;

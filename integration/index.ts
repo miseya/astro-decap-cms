@@ -4,7 +4,7 @@ import { spawn } from 'node:child_process';
 import type { PreviewStyle } from './types.js';
 import AdminDashboard from './vite-plugin-admin-dashboard.js';
 
-const widgetPath = 'astro-netlify-cms/identity-widget';
+const widgetPath = 'astro-decap-cms/identity-widget';
 
 interface NetlifyCMSOptions {
   /**
@@ -37,7 +37,7 @@ export default function NetlifyCMS({
   let proxy: ReturnType<typeof spawn>;
 
   const NetlifyCMSIntegration: AstroIntegration = {
-    name: 'netlify-cms',
+    name: 'decap-cms',
     hooks: {
       'astro:config:setup': ({
         config,
@@ -67,7 +67,7 @@ export default function NetlifyCMS({
 
         injectRoute({
           pattern: adminPath,
-          entryPoint: 'astro-netlify-cms/admin-dashboard.astro',
+          entryPoint: 'astro-decap-cms/admin-dashboard.astro',
         });
 
         if (!disableIdentityWidgetInjection) {
