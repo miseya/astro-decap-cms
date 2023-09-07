@@ -1,5 +1,11 @@
 # astro-netlify-cms
 
+## 0.6.0
+
+### Minor Changes
+
+- Switch from netlify-cms to decap-cms
+
 ## 0.5.4
 
 ### Patch Changes
