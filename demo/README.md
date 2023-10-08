@@ -71,7 +71,7 @@ previewing — this project still uses Astro components for other things).
 
 Inside of your Astro project, you'll see the following folders and files:
 
-```
+```txt
 /
 ├── public/
 │    └── ...
@@ -136,11 +136,11 @@ _See `src/components/Author.tsx` for an example._
    `src/components/index.ts`.
 
 [starter]: https://astro.new/blog?on=github
-[cms]: https://www.netlifycms.org/
-[proxy]: https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository
-[deploy]: https://app.netlify.com/start/deploy?repository=https://github.com/delucis/astro-netlify-cms
+[cms]: https://decapcms.org/
+[proxy]: https://decapcms.org/docs/beta-features/#working-with-a-local-git-repository
+[deploy]: https://app.netlify.com/start/deploy?repository=https://github.com/advanced-astro/astro-decap-cms
 [identity]: https://docs.netlify.com/visitor-access/identity/
 [gateway]: https://docs.netlify.com/visitor-access/git-gateway/
-[editor-components]: https://www.netlifycms.org/docs/custom-widgets/#registereditorcomponent
+[editor-components]: https://decapcms.org/docs/custom-widgets/#registereditorcomponent
 [cms5065]: https://github.com/netlify/netlify-cms/issues/5065
 [astro2474]: https://github.com/withastro/astro/issues/2474
