@@ -5,6 +5,7 @@
   "repository": "advanced-astro/astro-decap-cms",
   "homepage": "https://github.com/advanced-astro/astro-decap-cms",
   "author": "rdwz",
+	"license": "MIT",
   "type": "module",
   "exports": {
     ".": "./dist/index.js",
