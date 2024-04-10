@@ -18,9 +18,10 @@ interface DecapCMSOptions {
 }
 
 /**
- * Returns an integration object for Astro that sets up the necessary configurations and scripts for the Decap CMS admin dashboard.
- * @param options - The options for the Decap CMS integration.
- * @returns The integration object for Astro.
+ * Creates a DecapCMS integration with the given options.
+ *
+ * @param {DecapCMSOptions} options - the options for configuring the DecapCMS integration
+ * @return {AstroIntegration} the DecapCMS integration
  */
 export default function DecapCMS(options: DecapCMSOptions): AstroIntegration {
   let { disableIdentityWidgetInjection = false, adminPath = '/admin', config: cmsConfig, previewStyles = [] } = options;
@@ -35,7 +36,7 @@ export default function DecapCMS(options: DecapCMSOptions): AstroIntegration {
 
   let proxy: ReturnType<typeof spawn>;
 
-  const DecapCMSIntegration: AstroIntegration = {
+  const DecapCMSIntegration = {
     name: 'decap-cms',
     hooks: {
       'astro:config:setup': ({ config, injectRoute, injectScript, updateConfig }) => {
@@ -61,7 +62,7 @@ export default function DecapCMS(options: DecapCMSOptions): AstroIntegration {
 
         injectRoute({
           pattern: adminPath,
-          entryPoint: 'astro-decap-cms/admin-dashboard.astro',
+          entrypoint: 'astro-decap-cms/admin-dashboard.astro',
         });
 
         if (!disableIdentityWidgetInjection) {

@@ -3,7 +3,7 @@ import type { Plugin } from 'vite';
 import type { PreviewStyle } from './types';
 
 const virtualModuleId = 'virtual:astro-decap-cms/user-config';
-const resolvedVirtualModuleId = '\0' + virtualModuleId;
+const resolvedVirtualModuleId = `\0${virtualModuleId}`;
 
 function generateVirtualConfigModule({
   config,

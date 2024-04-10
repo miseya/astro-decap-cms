@@ -1,11 +1,11 @@
 {
   "name": "astro-decap-cms",
-  "version": "0.1.0",
-  "description": "Add Decap CMS’s admin dashboard to your Astro project",
+  "version": "0.2.0",
+  "description": "Add Decap CMS's admin dashboard to your Astro project",
   "repository": "advanced-astro/astro-decap-cms",
   "homepage": "https://github.com/advanced-astro/astro-decap-cms",
-  "author": "rdwz",
-	"license": "MIT",
+  "author": "Marc Redwerkz",
+  "license": "MIT",
   "type": "module",
   "exports": {
     ".": "./dist/index.js",
@@ -30,19 +30,21 @@
     "netlify-cms"
   ],
   "dependencies": {
-    "@types/react": "^17.0.50",
-    "decap-cms-app": "^3.0.0",
-    "decap-server": "^3.0.0",
+    "@types/react": "^18.2.75",
+    "decap-cms-app": "^3.1.8",
+    "decap-server": "^3.0.4",
     "netlify-identity-widget": "^1.9.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "peerDependencies": {
-    "astro": "^1.0.0 || ^2.0.0-beta || ^3.0.0-beta"
+    "astro": "^1.0.0 || ^2.0.0 || ^3.0.0 || ^4.0.0"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.4.7",
-    "@changesets/cli": "^2.25.0",
-    "astro": "^1.5.2"
+    "@astrojs/check": "^0.5.10",
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.1",
+    "astro": "^4.5.18",
+    "typescript": "^5.4.5"
   }
 }
