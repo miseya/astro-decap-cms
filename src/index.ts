@@ -4,6 +4,8 @@ import { spawn } from 'node:child_process';
 import type { PreviewStyle } from './types.js';
 import AdminDashboard from './vite-plugin-admin-dashboard.js';
 
+export type DecapCMSConfig = Omit<CmsConfig, 'load_config_file' | 'local_backend'>;
+
 const widgetPath = 'astro-decap-cms/identity-widget';
 
 interface DecapCMSOptions {
@@ -12,7 +14,7 @@ interface DecapCMSOptions {
    * @default '/admin'
    */
   adminPath?: string;
-  config: Omit<CmsConfig, 'load_config_file' | 'local_backend'>;
+  config: DecapCMSConfig;
   disableIdentityWidgetInjection?: boolean;
   previewStyles?: PreviewStyle[];
 }
