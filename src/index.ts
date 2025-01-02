@@ -1,23 +1,9 @@
-import type { AstroIntegration, AstroUserConfig } from 'astro';
-import type { CmsConfig } from 'decap-cms-core';
+import type { AstroIntegration } from 'astro';
 import { spawn } from 'node:child_process';
-import type { PreviewStyle } from './types.js';
-import AdminDashboard from './vite-plugin-admin-dashboard.js';
+import AdminDashboard from './vite/plugin.js';
+import type { DecapCMSOptions } from './types.js';
 
-export type DecapCMSConfig = Omit<CmsConfig, 'load_config_file' | 'local_backend'>;
-
-const widgetPath = 'astro-decap-cms/identity-widget';
-
-interface DecapCMSOptions {
-  /**
-   * Path at which the Netlify CMS admin dashboard should be served.
-   * @default '/admin'
-   */
-  adminPath?: string;
-  config: DecapCMSConfig;
-  disableIdentityWidgetInjection?: boolean;
-  previewStyles?: PreviewStyle[];
-}
+export type { DecapCMSConfig } from './types.js';
 
 /**
  * Creates a DecapCMS integration with the given options.
@@ -26,66 +12,63 @@ interface DecapCMSOptions {
  * @return {AstroIntegration} the DecapCMS integration
  */
 export default function DecapCMS(options: DecapCMSOptions): AstroIntegration {
-  let { disableIdentityWidgetInjection = false, adminPath = '/admin', config: cmsConfig, previewStyles = [] } = options;
+	let {
+		disableIdentityWidgetInjection = false,
+		adminPath = '/admin',
+		config: cmsConfig,
+		previewStyles = [],
+	} = options;
 
-  if (!adminPath.startsWith('/')) {
-    throw new Error(`'adminPath' option must be a root-relative pathname, starting with "/", got "${adminPath}"`);
-  }
+	if (!adminPath.startsWith('/')) {
+		throw new Error(`'adminPath' option must be a root-relative pathname, starting with "/", got "${adminPath}"`);
+	}
 
-  if (adminPath.endsWith('/')) {
-    adminPath = adminPath.slice(0, -1);
-  }
+	if (adminPath.endsWith('/')) {
+		adminPath = adminPath.slice(0, -1);
+	}
 
-  let proxy: ReturnType<typeof spawn>;
+	let proxy: ReturnType<typeof spawn>;
 
-  const DecapCMSIntegration = {
-    name: 'decap-cms',
-    hooks: {
-      'astro:config:setup': ({ config, injectRoute, injectScript, updateConfig }) => {
-        // const widgetPath = 'path/to/identity/widget'; // Replace with the actual path to the identity widget script
+	return {
+		name: 'decap-cms',
+		hooks: {
+			'astro:config:setup': ({ config, injectRoute, injectScript, updateConfig }) => {
+				updateConfig({
+					site: config.site || process.env.URL,
+					vite: {
+						plugins: [
+							...(config.vite?.plugins || []),
+							AdminDashboard({
+								config: cmsConfig,
+								previewStyles,
+								identityWidget: disableIdentityWidgetInjection,
+							}),
+						],
+					},
+				});
 
-        const identityWidgetScript = `import { initIdentity } from '${widgetPath}'; initIdentity('${adminPath}');`;
+				injectRoute({
+					pattern: adminPath,
+					entrypoint: 'astro-decap-cms/admin-dashboard.astro',
+				});
 
-        const newConfig: AstroUserConfig = {
-          site: config.site || process.env.URL,
-          vite: {
-            plugins: [
-              ...(config.vite?.plugins || []),
-              AdminDashboard({
-                config: cmsConfig,
-                previewStyles,
-                identityWidget: disableIdentityWidgetInjection ? identityWidgetScript : '',
-              }),
-            ],
-          },
-        };
+				if (!disableIdentityWidgetInjection) {
+					injectScript('page', 'import "astro-decap-cms/identity-widget"');
+				}
+			},
 
-        updateConfig(newConfig);
-
-        injectRoute({
-          pattern: adminPath,
-          entrypoint: 'astro-decap-cms/admin-dashboard.astro',
-        });
-
-        if (!disableIdentityWidgetInjection) {
-          injectScript('page', identityWidgetScript);
-        }
-      },
-
-      'astro:server:start': () => {
-        proxy = spawn('decap-server', {
-          stdio: 'inherit',
+			'astro:server:start': () => {
+				proxy = spawn('decap-server', {
+					stdio: 'inherit',
 					shell: (process as NodeJS.Process).platform === 'win32',
-        });
+				});
 
-        process.on('exit', () => proxy.kill());
-      },
+				process.on('exit', () => proxy.kill());
+			},
 
-      'astro:server:done': () => {
-        proxy.kill();
-      },
-    },
-  };
-
-  return DecapCMSIntegration;
+			'astro:server:done': () => {
+				proxy.kill();
+			},
+		},
+	};
 }
