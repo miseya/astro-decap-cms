@@ -1,5 +1,4 @@
 import type { CmsConfig } from 'decap-cms-core';
-import type { Plugin } from 'vite';
 import type { PreviewStyle } from './types';
 
 const virtualModuleId = 'virtual:astro-decap-cms/user-config';
@@ -30,10 +29,8 @@ function generateVirtualConfigModule({
   });
 
   return `${imports.join('\n')}
-import * as NCMS from 'decap-cms-app';
 ${identityWidget}
 export default {
-  cms: NCMS,
   config: JSON.parse('${JSON.stringify(config)}'),
   previewStyles: [${styles.join(',')}],
 };
@@ -48,7 +45,7 @@ export default function AdminDashboardPlugin({
   config: Omit<CmsConfig, 'load_config_file' | 'local_backend'>;
   previewStyles: PreviewStyle[];
   identityWidget: string;
-}): Plugin {
+}) {
   return {
     name: 'vite-plugin-decap-cms-admin-dashboard',
 
