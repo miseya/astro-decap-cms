@@ -5,8 +5,18 @@ Add [Decap CMS](https://decapcms.org)’s admin dashboard to any [Astro](https:/
 ## Installation
 
 ```sh
-npm i astro-decap-cms
+npm i @miseya/astro-decap-cms
+pnpm i @miseya/astro-decap-cms
+yarn add @miseya/astro-decap-cms
 ```
+
+## Difference with `astro-decap-cms`
+
+This fork offers faster build with over 80% time reduction. Rationale: there's already the build for Decap CMS, there's no need to build everytime.
+
+| @miseya/astro-decap-cms | astro-decap-cms |
+|-------------------------|-----------------|
+| ![@miseya/astro-decap-cms build](https://github.com/user-attachments/assets/0cd6b3a0-a1d5-4cca-b78c-460f56b8fa2f) | ![astro-decap-cms build](https://github.com/user-attachments/assets/45208fe0-ee7a-4715-b644-1e4764688888) |
 
 ## What is this?
 
@@ -142,5 +152,6 @@ If you only want to inject the widget on the admin route, you can set `disableId
 
 ## Aknowledgement
 
+- `astro-decap-cms` [`NPM`](https://www.npmjs.com/package/astro-decap-cms) [`GITHUB`](https://github.com/advanced-astro/astro-decap-cms)
 - `@jee-r/astro-decap-cms` [`NPM`](https://www.npmjs.com/package/@jee-r/astro-decap-cms) [`GITHUB`](https://github.com/jee-r/astro-decap-cms)
 - `astro-netlify-cms` [`NPM`](https://www.npmjs.com/package/astro-netlify-cms) [`GITHUB`](https://github.com/delucis/astro-netlify-cms)
