@@ -23,7 +23,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "prepack": "tsc",
-    "test:smoke": "tsc && cd demo && pnpm ci && pnpm build",
+    "test:smoke": "tsc && cd demo && pnpm i && pnpm build",
     "test": "pnpm run test:smoke"
   },
   "keywords": [
