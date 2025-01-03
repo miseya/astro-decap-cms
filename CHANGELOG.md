@@ -1,4 +1,4 @@
-# astro-decap-cms
+# @miseya/astro-decap-cms
 
 ## 0.3.0
 

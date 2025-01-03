@@ -1,9 +1,9 @@
 import type { AstroIntegration } from 'astro';
 import { spawn } from 'node:child_process';
 import AdminDashboard from './vite/plugin.js';
-import type { DecapCMSOptions } from './types.js';
+import type { DecapCMSOptions } from './types';
 
-export type { DecapCMSConfig } from './types.js';
+export type { DecapCMSOptions, DecapCMSConfig } from './types';
 
 /**
  * Creates a DecapCMS integration with the given options.
@@ -49,11 +49,11 @@ export default function DecapCMS(options: DecapCMSOptions): AstroIntegration {
 
 				injectRoute({
 					pattern: adminPath,
-					entrypoint: 'astro-decap-cms/admin-dashboard.astro',
+					entrypoint: '@miseya/astro-decap-cms/admin-dashboard.astro',
 				});
 
 				if (!disableIdentityWidgetInjection) {
-					injectScript('page', 'import "astro-decap-cms/identity-widget"');
+					injectScript('page', 'import "@miseya/astro-decap-cms/identity-widget"');
 				}
 			},
 

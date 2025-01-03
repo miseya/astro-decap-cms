@@ -1,4 +1,4 @@
-import { VirtualModuleConfig } from "../types";
+import type { VirtualModuleConfig } from "../types";
 
 export function generateVirtualConfigModule({
 	config,

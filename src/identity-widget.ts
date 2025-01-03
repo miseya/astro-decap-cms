@@ -1,3 +1,4 @@
+// @ts-nocheck
 import identity from 'netlify-identity-widget';
 
 export function initIdentity(adminPath: string) {

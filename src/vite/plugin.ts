@@ -1,11 +1,11 @@
-import { ViteUserConfig } from 'astro';
-import { generateVirtualConfigModule } from './virtual-module';
+import type { ViteUserConfig } from 'astro';
+import { generateVirtualConfigModule } from './virtual-module.js';
 import type { CmsConfig, PreviewStyle} from '../types';
 
-const virtualModuleId = 'virtual:astro-decap-cms/user-config';
+const virtualModuleId = 'virtual:@miseya/astro-decap-cms/user-config';
 const resolvedVirtualModuleId = `\0${virtualModuleId}`;
 
-type VitePlugin = ViteUserConfig['plugins'][number]
+type VitePlugin = Exclude<ViteUserConfig['plugins'], undefined>[0]
 
 interface AdminDashboardPluginOptions {
 	config: CmsConfig;
