@@ -10,13 +10,15 @@ pnpm i @miseya/astro-decap-cms
 yarn add @miseya/astro-decap-cms
 ```
 
-## Difference with `astro-decap-cms`
+## What is different?
 
-This fork offers faster build with over 80% time reduction. Rationale: there's already the build for Decap CMS, there's no need to build everytime.
+This fork offers faster build with over 80% time reduction. Rationale: there's already the build for Decap CMS, there's no need to rebuild it everytime.
 
-| @miseya/astro-decap-cms | astro-decap-cms |
+New features from the `astro-decap-cms` will be merged as to keep the same configurations.
+
+| astro-decap-cms | @miseya/astro-decap-cms |
 |-------------------------|-----------------|
-| ![@miseya/astro-decap-cms build](https://github.com/user-attachments/assets/0cd6b3a0-a1d5-4cca-b78c-460f56b8fa2f) | ![astro-decap-cms build](https://github.com/user-attachments/assets/45208fe0-ee7a-4715-b644-1e4764688888) |
+| ![astro-decap-cms build](https://github.com/user-attachments/assets/0cd6b3a0-a1d5-4cca-b78c-460f56b8fa2f) | ![@miseya/astro-decap-cms build](https://github.com/user-attachments/assets/45208fe0-ee7a-4715-b644-1e4764688888) |
 
 ## What is this?
 
