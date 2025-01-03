@@ -1,8 +1,4 @@
 ---
-setup: |
-  import Layout from '../../layouts/BlogPost.astro'
-  import Components from '../../components'
-  const { Author } = Components
 title: Hello world!
 publishDate: 12 Sep 2021
 author: Marc Redwerkz
