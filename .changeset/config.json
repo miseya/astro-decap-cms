@@ -2,13 +2,13 @@
   "$schema": "https://unpkg.com/@changesets/config@2.1.1/schema.json",
   "changelog": [
     "@changesets/changelog-github",
-    { "repo": "advanced-astro/astro-decap-cms" }
+    { "repo": "miseya/astro-decap-cms" }
   ],
   "commit": false,
   "fixed": [],
   "linked": [],
   "access": "public",
-  "baseBranch": "latest",
+  "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": []
 }

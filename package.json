@@ -1,15 +1,18 @@
 {
-  "name": "astro-decap-cms",
-  "version": "0.2.0",
-  "description": "Add Decap CMS's admin dashboard to your Astro project",
-  "repository": "advanced-astro/astro-decap-cms",
-  "homepage": "https://github.com/advanced-astro/astro-decap-cms",
-  "author": "Marc Redwerkz",
+  "name": "@miseya/astro-decap-cms",
+  "version": "0.3.0",
+  "description": "Add Decap CMS's admin dashboard to your Astro project, with faster build time using CDN",
+  "repository": "miseya/astro-decap-cms",
+  "homepage": "https://github.com/miseya/astro-decap-cms",
+  "author": "sglkc",
   "license": "MIT",
   "type": "module",
   "bin": {
     "decap-server": "node_modules/.bin/decap-server"
   },
+  "files": [
+    "dist/"
+  ],
   "exports": {
     ".": "./dist/index.js",
     "./cms": "./dist/cms.js",
@@ -20,8 +23,8 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "prepack": "tsc",
-    "test:smoke": "tsc && cd demo && npm ci && npm run build",
-    "test": "npm run test:smoke"
+    "test:smoke": "tsc && cd demo && pnpm ci && pnpm build",
+    "test": "pnpm run test:smoke"
   },
   "keywords": [
     "astro",
