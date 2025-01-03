@@ -9,7 +9,7 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "astro": "^4.5.18",
-    "astro-decap-cms": "link:.."
+    "@miseya/astro-decap-cms": "link:..",
+    "astro": "^4.5.18"
   }
 }

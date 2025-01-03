@@ -11,7 +11,8 @@
     "decap-server": "node_modules/.bin/decap-server"
   },
   "files": [
-    "dist/"
+    "dist/",
+    "admin-dashboard.astro"
   ],
   "exports": {
     ".": "./dist/index.js",

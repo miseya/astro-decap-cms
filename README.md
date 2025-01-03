@@ -10,11 +10,11 @@ pnpm i @miseya/astro-decap-cms
 yarn add @miseya/astro-decap-cms
 ```
 
-## What is different?
+## Difference with `astro-decap-cms`
 
-This fork offers faster build with over 80% time reduction. Rationale: there's already the build for Decap CMS, there's no need to rebuild it everytime.
+This fork offers faster build with over 80% time reduction. Rationale: there's already the build for Decap CMS, there's no need to rebuild it everytime. New features from the `astro-decap-cms` will be merged as to keep the same configurations.
 
-New features from the `astro-decap-cms` will be merged as to keep the same configurations.
+The package also exports `DecapCMSOptions` type for Astro integration options and `DecapCMSConfig` for Decap CMS configuration.
 
 | astro-decap-cms | @miseya/astro-decap-cms |
 |-------------------------|-----------------|

@@ -8,12 +8,12 @@ importers:
 
   .:
     devDependencies:
+      '@miseya/astro-decap-cms':
+        specifier: link:..
+        version: link:..
       astro:
         specifier: ^4.5.18
         version: 4.16.18(@types/node@22.10.3)(rollup@4.28.1)(typescript@5.7.2)
-      astro-decap-cms:
-        specifier: link:..
-        version: link:..
 
 packages:
 
